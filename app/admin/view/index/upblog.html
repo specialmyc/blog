@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="renderer" content="webkit">
+<title></title>
+<link rel="stylesheet" href="public/editor.md/examples/css/style.css" />
+<link rel="stylesheet" href="public/editor.md/css/editormd.css" />
+<link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="public/admin/css/pintuer.css">
+<link rel="stylesheet" href="public/admin/css/admin.css">
+<script src="public/admin/js/jquery.js"></script>
+<script src="public/admin/js/pintuer.js"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+  <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 博客信息</strong></div>
+  <div class="body-content">
+    <form method="post" class="form-x" action="index.php?m=admin&c=index&a=updateblog&bid=${$result[0]['bid']}" enctype="multipart/form-data">      
+      <div class="form-group">
+        <div class="label">
+          <label>标题：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="title" value="${$result[0]['title']}" />
+          <div class="tips"></div>
+        </div>
+      </div>
+     <!--  <div class="form-group">
+        <div class="label">
+          <label>图片：</label>
+        </div>
+        <div class="field">
+          <input type="file" id="url1" name="picture" class="input tips" style="width:25%; float:left;"  value="${$result[0]['picture']}"  data-toggle="hover" data-place="right" data-image="" />
+          <! <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;"> -->
+         <!--  <div class="tipss"></div>
+        </div>
+      </div> -->
+      <div class="form-group">
+        <div class="label">
+          <label>内容：</label>
+        </div>
+        <div class="field" id="test-editormd">
+          <textarea name="content"  style="display:none;">${$result[0]['content']}</textarea>
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label></label>
+        </div>
+        <div class="field">
+          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+        </div>
+      </div>
+    </form>
+    <script src="public/editor.md/examples/js/jquery.min.js"></script>
+          <script src="public/editor.md/editormd.min.js"></script>
+          <script type="text/javascript">
+          var testEditor;
+
+            $(function() {
+                testEditor = editormd("test-editormd", {
+                    width   : "85%",
+                    height  : 400,
+                    syncScrolling : "single",
+                    path    : "public/editor.md/lib/"
+                });
+            });
+        </script>
+  </div>
+</div>
+</body></html>
